@@ -31,6 +31,7 @@ async function toFindUser() {
 
 
         let myVideos = data.find(el => el.userId == userId)
+
         if(!myVideos) return
 
         renderContent(myVideos.videos)
@@ -134,7 +135,7 @@ function pushVideo(title) {
 
     uploadInput.value = null
     videoInput.value = null
-
+    
     addedVideo(formData)
 }
 
@@ -148,7 +149,7 @@ async function addedVideo(formData) {
     })
 
     let data = await res.json()
-    // console.log(await res.json());
+    console.log(await res.json());
 
     if (data.status == 400) {
         errorMessage.textContent = data.message
