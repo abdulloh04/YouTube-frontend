@@ -71,7 +71,6 @@ submitButton.onclick = async (e) => {
     })
     
     res = await res.json()
-    console.log(res);
     console.log(res.token);
 
     if (res.status == 400) {
@@ -79,10 +78,9 @@ submitButton.onclick = async (e) => {
         // return window.location.reload()
     }
 
-    // window.localStorage.setItem("token", res.token)
-    // window.location = '/'
-    // console.log('+++++++++++++');
-    // if (res.status != 400) 
+    window.localStorage.setItem("token", res.token)
+    window.location = '/'
+    console.log('+++++++++++++');
 
 
 }

@@ -147,6 +147,7 @@ async function addedVideo(formData) {
         body: formData
     })
 
+    let data = await res.json()
     // console.log(await res.json());
 
     if (data.status == 400) {
