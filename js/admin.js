@@ -8,10 +8,12 @@ async function token(token) {
         }
     })
 
+    if (!res.ok) window.location = '/login'
+
     userId = await res.json()
     userId = userId.userId
 
-    if (!res.ok) window.location = '/login'
+
 
 
 }
@@ -27,7 +29,11 @@ async function toFindUser() {
     try {
         let res = await fetch(API + '/users')
         let data = await res.json()
+
+
         let myVideos = data.find(el => el.userId == userId)
+        if(!myVideos) return
+        
         renderContent(myVideos.videos)
     } catch (error) {
         window.location.reload();
@@ -109,33 +115,33 @@ async function updatedTitle(title, dataId) {
 }
 
 submitButton.onclick = () => {
-    if(!videoInput.value.length){
+    if (!videoInput.value.length) {
         errorMessage.textContent = "Empty title"
         return
     }
 
-    if(!uploadInput.files[0]){
+    if (!uploadInput.files[0]) {
         videoInput.value = null
         errorMessage.textContent = "Empty video"
         return
     }
-    
+
     pushVideo(videoInput.value)
 }
 
 
-function pushVideo(title){
+function pushVideo(title) {
     const formData = new FormData()
     formData.append('title', title)
     formData.append('video', uploadInput.files[0])
 
     uploadInput.value = null
-    videoInput.value = null  
+    videoInput.value = null
 
     addedVideo(formData)
 }
 
-async function addedVideo(formData){
+async function addedVideo(formData) {
     let res = await fetch(API + '/admin', {
         method: 'POST',
         headers: {
@@ -152,7 +158,7 @@ async function addedVideo(formData){
         videoInput.value = null
         return
     }
-    
+
     toFindUser()
 }
 
