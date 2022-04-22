@@ -7,8 +7,8 @@ console.clear();
 app.use(express.static(path.join(process.cwd(), 'client')));
 
 process.PORT = process.env.PORT || 7000
-process.IPV4 = os.networkInterfaces()['wlp0s20f3'][0].address
-process.HOST = 'http://' + process.IPV4 + ':' + process.PORT
+// process.IPV4 = os.networkInterfaces()['wlp0s20f3'][0].address
+// process.HOST = 'http://' + process.IPV4 + ':' + process.PORT
 
 
 

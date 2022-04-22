@@ -144,7 +144,14 @@ async function addedVideo(formData){
         body: formData
     })
 
-    console.log(await res.json());
+    // console.log(await res.json());
+
+    if (data.status == 400) {
+        errorMessage.textContent = data.message
+        uploadInput.value = null
+        videoInput.value = null
+        return
+    }
     
     toFindUser()
 }
