@@ -57,17 +57,10 @@ async function renderUsers() {
 }
 
 async function idGetRenderVideos(id) {
-    try {
         let res = await fetch(API + `/videos/${id}`)
         let data = await res.json()
 
         renderVideos(data)
-    } catch (error) {
-        window.location.reload();
-    }
-
-
-    // console.log(users);
 }
 
 function renderVideos(data) {

@@ -26,18 +26,15 @@ logoutBtn.onclick = () => {
 }
 
 async function toFindUser() {
-    try {
         let res = await fetch(API + '/users')
         let data = await res.json()
 
 
         let myVideos = data.find(el => el.userId == userId)
         if(!myVideos) return
-        
+
         renderContent(myVideos.videos)
-    } catch (error) {
-        window.location.reload();
-    }
+    
 }
 
 
