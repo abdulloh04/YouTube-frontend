@@ -71,15 +71,17 @@ submitButton.onclick = async (e) => {
     })
     
     res = await res.json()
+    console.log(res);
     console.log(res.token);
+
     if (res.status == 400) {
         return errorMessage.textContent = res.message
         // return window.location.reload()
     }
 
-    window.localStorage.setItem("token", res.token)
-    window.location = '/'
-    console.log('+++++++++++++');
+    // window.localStorage.setItem("token", res.token)
+    // window.location = '/'
+    // console.log('+++++++++++++');
     // if (res.status != 400) 
 
 
