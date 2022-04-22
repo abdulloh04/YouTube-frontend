@@ -71,7 +71,7 @@ submitButton.onclick = async (e) => {
     })
     
     res = await res.json()
-    console.log(res.token);
+    console.log(res);
 
     if (res.status == 400) {
         return errorMessage.textContent = res.message
