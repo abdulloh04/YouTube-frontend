@@ -149,7 +149,7 @@ async function addedVideo(formData) {
     })
 
     let data = await res.json()
-    console.log(await res.json());
+    console.log(data);
 
     if (data.status == 400) {
         errorMessage.textContent = data.message
